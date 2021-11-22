@@ -1,0 +1,82 @@
+﻿@model Facturation.Models.ViewModels.AbonemetVM
+
+<form method="post">
+    <input asp-for="Abonnement.Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Modifier un abonné</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="Abonnement.Nom"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Abonnement.Prenom"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Abonnement.Adresse"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Abonnement.Nom" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Abonnement.Prenom" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Abonnement.Adresse" class="form-control" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <label asp-for="Abonnement.Cni"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Abonnement.Categories"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Abonnement.Puissances"></label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-4">
+                        <input asp-for="Abonnement.Cni" class="form-control" />
+
+                    </div>
+                    <div class="col-4">
+                        <select asp-for="Abonnement.CategorieId" asp-items="@Model.TypeDropDown" class="form-control">
+                            <option selected>---selectionner une categorie</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select asp-for="Abonnement.PuissanceId" asp-items="@Model.TypeDropDowns" class="form-control">
+                            <option selected>---selectionner une Puissance</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Modifier" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Annuler</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+

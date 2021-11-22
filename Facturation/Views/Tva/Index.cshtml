@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<Facturation.Models.Tva>
+
+<div class="container" p-3>
+
+    <a class="btn btn-primary btn-lg" asp-controller="Tva" asp-action="Create">Ajouter</a>
+    <br />
+    <br />
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Année</th>
+                    <th scope="col">valeur</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Annee</td>
+                    <td>@item.Valeur</td>
+                    <td width="30%">
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Tva" asp-action="Update" asp-route-Id="@item.Id" class="btn btn-primary mx-1">Modifier</a>
+                            <a asp-controller="Tva" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger mx-1">effacer</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table> }
+    else
+    {
+        <p>Pas de creation de categorie</p>
+    }
+
+
+</div>
